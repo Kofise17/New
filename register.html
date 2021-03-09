@@ -1,0 +1,38 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<div class="wrapper">
+  <h1> Register:</h1>
+  <br>
+  <form method="POST" action="Register()" onsubmit="Register()">
+  <table>
+    <tr>
+      <td><input type="text" class="form__input" id="username" placeholder="Username" required="" />
+      <label for="username" class="form__label">Username</label>
+      </td>
+      <td><input type="text" class="form__input" id="password" placeholder="Password" required="" />
+      <label for="password" class="form__label">Password</label>
+      </td>
+    </tr>
+    <tr>
+      <td><input type="text" class="form__input" id="name" placeholder="Name" required="" />
+      <label for="name" class="form__label">Name</label>
+      </td>
+      <td><input type="text" class="form__input" id="firstname" placeholder="Firstname" required="" />
+      <label for="firstname" class="form__label">Firstname</label>
+      </td>    
+    </tr>
+    <tr>
+      <td><input type="text" class="form__input" id="addressline" placeholder="Address Line 1" required="" />
+      <label for="addressline" class="form__label">Address Line 1</label>
+      </td>
+      <td><input type="text" class="form__input" id="domicile" placeholder="Domicile" required="" />
+      <label for="domicile" class="form__label">Domicile</label>
+      </td>    
+    </tr>
+    <tr>
+      <td><input class="form__button"type="button" onClick="Erase()" value="Erase"></input></td>
+      <td><input class="form__button" type="submit" value="Register"></input></td>
+    </tr>
+  </table>
+</form>
+<p class="tab">Already have an account? <a href="/login">Log in here!</a></p>
+<div id="Saved"></div>
