@@ -1,22 +1,29 @@
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<div class="wrapper">
-  <h1>Log in:</h1>
-  <br>
-  <form method="POST" action="Login()" onsubmit="Login()">
-  <table>
-    <tr>
-      <td><input type="text" class="form__input" id="username" placeholder="Username" required="" />
-      <label for="username" class="form__label">Username</label>
-      </td>
-      <td><input type="text" class="form__input" id="password" placeholder="Password" required="" />
-      <label for="password" class="form__label">Password</label>
-      </td>
-    </tr>
-    <tr>
-      <td><input class="form__button"type="button" onClick="Erase()" value="Erase"></input></td>
-      <td><input class="form__button" type="submit" value="Login"></input></td>
-    </tr>
-  </table>
-</form>
-<p class="tab">No account yet? <a href="/register">Register here!</a></p>
-<div id="Saved"><div/>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/stylesheet1.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Log in:</h1>
+      <br>
+      <form method="POST" action="Login()" onsubmit="Login()">
+      <table>
+        <tr>
+          <td><input type="text" class="form__input" id="username" placeholder="Username" required="" />
+          <label for="username" class="form__label">Username</label>
+          </td>
+          <td><input type="text" class="form__input" id="password" placeholder="Password" required="" />
+          <label for="password" class="form__label">Password</label>
+          </td>
+        </tr>
+        <tr>
+          <td><input class="form__button"type="button" onClick="Erase()" value="Erase"></input></td>
+          <td><input class="form__button" type="submit" value="Login"></input></td>
+        </tr>
+      </table>
+    </form>
+    <p class="tab">No account yet? <a href="/register">Register here!</a></p>
+    <div id="Saved"></div>
+  </body>
+</html>
