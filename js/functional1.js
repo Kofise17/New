@@ -18,7 +18,7 @@ function Login(){
 // onClick "register"
 function SignUp(){
   var result = false;
-  if(controlPassword()){
+  if(passwordIsOK()){
     window.alert("Works.");
     result = true;
   }
@@ -29,22 +29,24 @@ function SignUp(){
 }
 
 // control validity of password
-function controlPassword(){
+function passwordIsOK(){
   var result = false;
   //if(controlLengthIsOK()){
-  if(controlLengthIsOK() && !controlPsswdIsBreached()){
-    result = true;
+  if(lengthIsOK()){
+    console.log("Length is okay (" + password.value.length + ")");
+    if(!psswdIsBreached()){
+      console.log("Password has not been breached (" + password.value + ")")
+      result = true;
+    }
   }
   return result;
 }
 
 // control if password length is least 8
-function controlLengthIsOK(){
+function lengthIsOK(){
   var result = false;
-  console.log("controlLengthIsOK reached");
   changeClassLBad()
   if(password.value.length >= 8){
-    console.log("inner if reached");
     changeClassLGood();
     result = true;
   }
@@ -52,23 +54,21 @@ function controlLengthIsOK(){
 }
 
 // control if password is breached
-function controlPsswdIsBreached(){
+function psswdIsBreached(){
   var result = false;
-  changeClassBGood();
   $.get('src/HIBP.txt', {cache:false}, function(data)
   {
     if (data.indexOf(password.value)>-1) {
-      changeClassBBad();
-      window.alert("Password has been breached");
+      console.log("Password has been breached");
       document.getElementById("psswdBreach").innerHTML = "Your password may not be contained in the list of breached passwords";
       result = true;
     }
     else {
       window.alert("Password is safe");
-    } 
+    }
+    return result;
     //setTimeout(getTextfile, 1000);
-  }); 
-  return result;
+  });
 }
 
 // change colours of password rules
@@ -79,14 +79,6 @@ function changeClassLGood(){
 function changeClassLBad(){
   classListPLength.remove("goodPsswd");
   classListPLength.add("badPsswd");
-}
-function changeClassBGood(){
-  classListPBreach.remove("badPsswd");
-  classListPBreach.add("goodPsswd");
-}
-function changeClassBBad(){
-  classListPBreach.remove("goodPsswd");
-  classListPBreach.add("badPsswd");
 }
 
 // Erase Button
