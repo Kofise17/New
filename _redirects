@@ -1,2 +1,2 @@
-/* /login 200
-/welcome /login 200
+/* /login
+/welcome /login 301
