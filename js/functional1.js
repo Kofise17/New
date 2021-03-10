@@ -1,6 +1,10 @@
-var password = document.getElementById("password");
-var classListPLength = document.getElementById("psswdLength").classList;
-var classListPBreach = document.getElementById("psswdBreach").classList;
+try{
+  var password = document.getElementById("password");
+  var classListPLength = document.getElementById("psswdLength").classList;
+  var classListPBreach = document.getElementById("psswdBreach").classList;
+}catch{
+  
+}
 
 // onClick "login"
 function Login(){
