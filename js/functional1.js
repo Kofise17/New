@@ -31,8 +31,8 @@ function SignUp(){
 // control validity of password
 function controlPassword(){
   var result = false;
-  if(controlLengthIsOK()){
-  //if(controlLengthIsOK() && !controlPsswdIsBreached()){
+  //if(controlLengthIsOK()){
+  if(controlLengthIsOK() && !controlPsswdIsBreached()){
     result = true;
   }
   return result;
@@ -55,12 +55,12 @@ function controlLengthIsOK(){
 function controlPsswdIsBreached(){
   var result = false;
   changeClassBGood();
-  $.get('HIBP.txt', {cache:false}, function(data) 
+  $.get('src/HIBP.txt', {cache:false}, function(data)
   {
-    if (data.indexOf(passwordVal)>-1) {
+    if (data.indexOf(password.value)>-1) {
       changeClassBBad();
       window.alert("Password has been breached");
-      document.getElementById("psswdBreach").value = "Your password may not be contained in the list of breached passwords";
+      document.getElementById("psswdBreach").innerHTML = "Your password may not be contained in the list of breached passwords";
       result = true;
     }
     else {
@@ -88,7 +88,6 @@ function changeClassBBad(){
   classListPBreach.remove("goodPsswd");
   classListPBreach.add("badPsswd");
 }
-
 
 // Erase Button
 function EraseBase(){    
