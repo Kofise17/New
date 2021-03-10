@@ -1,5 +1,4 @@
 var password = document.getElementById("password");
-var passwordVal = password.value;
 var classListPLength = document.getElementById("psswdLength").classList;
 var classListPBreach = document.getElementById("psswdBreach").classList;
 
@@ -42,9 +41,9 @@ function controlPassword(){
 // control if password length is least 8
 function controlLengthIsOK(){
   var result = false;
-  console.log("controlLengthIsOK reached" + passwordVal.length);
+  console.log("controlLengthIsOK reached");
   changeClassLBad()
-  if(passwordVal.length >= 8){
+  if(password.value.length >= 8){
     console.log("inner if reached");
     changeClassLGood();
     result = true;
