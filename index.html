@@ -54,17 +54,18 @@
   <form method="POST" action="Login()" onsubmit="Login()">
     <img class="mb-4" src="https://www.ap.be/themes/custom/ap_hogeschool/src/images/logo-ap.svg" alt="" width="100%" height="100%">
     <h1 class="h3 mb-3 fw-normal">Please login</h1>
-    <label for="inputUserName" class="visually-hidden">Username</label>
-    <input type="text" id="inputUserName" class="form-control" placeholder="Username" required autofocus>
-    <label for="inputPassword" class="visually-hidden">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <label for="username" class="visually-hidden">Username</label>
+    <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
+    <label for="password" class="visually-hidden">Password</label>
+    <input type="password" id="password" class="form-control" placeholder="Password" required>
     <div class="checkbox mb-3">
       <label>
         <input type="checkbox" value="remember-me"> Remember me
       </label>
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
-    <button class="w-100 btn btn-lg btn-primary" type="button" onClick=Erase()>Erase</button>
+    <br>
+    <button class="w-100 btn btn-lg btn-primary" type="button" onClick=EraseBase()>Erase</button>
     <p>Don't have an account yet? <a href="signUp.html">Register here</a></p>
   </form>
 </main>
