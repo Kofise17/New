@@ -1,6 +1,6 @@
-var passwordVal = document.getElementById('password').value;
-var classListPLength = document.getElementById(psswdLength).classList;
-var classListPBreach = document.getElementById(psswdBreach).classList;
+var passwordVal = document.getElementById("password").value;
+var classListPLength = document.getElementById("psswdLength").classList;
+var classListPBreach = document.getElementById("psswdBreach").classList;
 
 function Login(){
   var result = false;
@@ -48,7 +48,8 @@ function Erase(){
 
 function controlPassword(){
   var result = false;
-  if(controlLengthIsOK() && !controlPsswdIsBreached()){
+  if(controlLengthIsOK()){
+  //if(controlLengthIsOK() && !controlPsswdIsBreached()){
     result = true;
   }
   return result;
@@ -56,8 +57,10 @@ function controlPassword(){
 
 function controlLengthIsOK(){
   var result = false;
+  console.log("controlLengthIsOK reached" + passwordVal.length);
   changeClassLBad()
   if(passwordVal.length >= 8){
+    console.log("inner if reached");
     changeClassLGood();
     result = true;
   }
@@ -66,9 +69,11 @@ function controlLengthIsOK(){
 
 function controlPsswdIsBreached(){
   var result = false;
+  changeClassBGood();
   $.get('HIBP.txt', {cache:false}, function(data) 
   {
     if (data.indexOf(passwordVal)>-1) {
+      changeClassBBad();
       window.alert("Password has been breached");
       document.getElementById("psswdBreach").value = "Your password may not be contained in the list of breached passwords";
       result = true;
@@ -97,4 +102,9 @@ function changeClassBGood(){
 function changeClassBBad(){
   classListPBreach.remove("goodPsswd");
   classListPBreach.add("badPsswd");
+}
+
+
+function test(){
+  changeClassLGood();
 }
