@@ -2,22 +2,15 @@
 <!doctype html>
 <html lang="en">
   <head>    
-    <script src="js/functional1.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <link rel="shorrtcut icon" href="https://learning.ap.be/theme/image.php/fordson/theme/1614698236/favicon">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.80.0">
-    <title>Login</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
-
-    
-
-    <!-- Bootstrap core CSS -->
+    <link rel="shorrtcut icon" href="https://learning.ap.be/theme/image.php/fordson/theme/1614698236/favicon">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/"><!-- Bootstrap core CSS -->
     <link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-
+ 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
     <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -27,6 +20,10 @@
     <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
     <meta name="theme-color" content="#7952b3">
 
+    
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/5.0/examples/sign-in/signin.css" rel="stylesheet">    
+    <link rel="stylesheet" href="css/stylesheet1.css">
 
     <style>
       .bd-placeholder-img {
@@ -44,33 +41,32 @@
       }
     </style>
 
-    
-    <!-- Custom styles for this template -->
-    <link href="https://getbootstrap.com/docs/5.0/examples/sign-in/signin.css" rel="stylesheet">
+    <title>Login</title>    
   </head>
-  <body class="text-center">
-    
-<main class="form-signin">
-  <form method="POST" action="Login()" onsubmit="Login()">
-    <img class="mb-4" src="https://www.ap.be/themes/custom/ap_hogeschool/src/images/logo-ap.svg" alt="" width="100%" height="100%">
-    <h1 class="h3 mb-3 fw-normal">Please login</h1>
-    <label for="username" class="visually-hidden">Username</label>
-    <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
-    <label for="password" class="visually-hidden">Password</label>
-    <input type="password" id="password" class="form-control" placeholder="Password" required>
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
-    <br>
-    <button class="w-100 btn btn-lg btn-primary" type="button" onClick=EraseBase()>Erase</button>
-    <p>Don't have an account yet? <a href="signUp.html">Register here</a></p>
-  </form>
-</main>
+  <body class="text-center">    
+    <main class="form-signin">
+      <form method="POST" onsubmit="Login()">
+        <img class="mb-4" src="https://www.ap.be/themes/custom/ap_hogeschool/src/images/logo-ap.svg" alt="logo-ap" width="100%" height="100%">
 
+        <h1 class="h3 mb-3 fw-normal">Please login</h1>
 
-    
+        <label for="username" class="visually-hidden">Username</label>
+        <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
+
+        <label for="password" class="visually-hidden">Password</label>
+        <input type="password" id="password" class="form-control" placeholder="Password" required>
+
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary distance" type="submit">Log in</button>
+        <button class="w-100 btn btn-lg btn-primary distance" type="button" onClick=EraseBase()>Erase</button>
+        <p>Don't have an account yet? <a href="signUp.html">Register here</a></p>
+      </form>
+    </main>
+    <script src="js/functional1.js"></script>
   </body>
 </html>
