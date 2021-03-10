@@ -1,5 +1,5 @@
   var password = document.getElementById("password");
-if(document.getElementById("psswdLength").classList !== undefined){
+if(document.getElementById("psswdLength").classList !== null){
   var classListPLength = document.getElementById("psswdLength").classList;
   var classListPBreach = document.getElementById("psswdBreach").classList;
 }
