@@ -67,7 +67,9 @@
         <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
 
         <label for="password" class="visually-hidden">Password</label>
-        <input type="password" id="password" class="form-control" placeholder="Password" required>
+        <input type="password" id="password" class="form-control" placeholder="Password" onchange="controlPassword()" required>
+        <p id="psswdLength" class="badPsswd">Your password has to be at least 8 characters</p>
+        <p id="psswdBreach"></p>
 
         <div class="checkbox mb-3">
           <label>

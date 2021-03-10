@@ -1,3 +1,11 @@
 button.distance{
   margin:1%;
 }
+
+p.badPsswd{
+  color: red;
+}
+
+p.goodPsswd{
+  color:green;
+}

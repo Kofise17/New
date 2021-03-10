@@ -1,4 +1,6 @@
 var passwordVal = document.getElementById('password').value;
+var classListPLength = document.getElementById(psswdLength).classList;
+var classListPBreach = document.getElementById(psswdBreach).classList;
 
 function Login(){
   var result = false;
@@ -54,7 +56,9 @@ function controlPassword(){
 
 function controlLengthIsOK(){
   var result = false;
+  changeClassLBad()
   if(passwordVal.length >= 8){
+    changeClassLGood();
     result = true;
   }
   return result;
@@ -66,6 +70,7 @@ function controlPsswdIsBreached(){
   {
     if (data.indexOf(passwordVal)>-1) {
       window.alert("Password has been breached");
+      document.getElementById("psswdBreach").value = "Your password may not be contained in the list of breached passwords";
       result = true;
     }
     else {
@@ -74,4 +79,22 @@ function controlPsswdIsBreached(){
     //setTimeout(getTextfile, 1000);
   }); 
   return result;
+}
+
+// change colours of password rules
+function changeClassLGood(){
+  classListPLength.remove("badPsswd");
+  classListPLength.add("goodPsswd");
+}
+function changeClassLBad(){
+  classListPLength.remove("goodPsswd");
+  classListPLength.add("badPsswd");
+}
+function changeClassBGood(){
+  classListPBreach.remove("badPsswd");
+  classListPBreach.add("goodPsswd");
+}
+function changeClassBBad(){
+  classListPBreach.remove("goodPsswd");
+  classListPBreach.add("badPsswd");
 }
