@@ -1,10 +1,9 @@
-try{
   var password = document.getElementById("password");
+if(document.getElementById("psswdLength").classList !== undefined){
   var classListPLength = document.getElementById("psswdLength").classList;
   var classListPBreach = document.getElementById("psswdBreach").classList;
-}catch{
-  
 }
+
 
 // onClick "login"
 function Login(){
