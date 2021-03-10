@@ -1,2 +1,3 @@
 /* /login
-/welcome /login
+/welcome /login 302
+/signup /login
