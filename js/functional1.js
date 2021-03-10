@@ -1,7 +1,9 @@
-var passwordVal = document.getElementById("password").value;
+var password = document.getElementById("password");
+var passwordVal = password.value;
 var classListPLength = document.getElementById("psswdLength").classList;
 var classListPBreach = document.getElementById("psswdBreach").classList;
 
+// onClick "login"
 function Login(){
   var result = false;
   if(controlPassword()){
@@ -14,6 +16,7 @@ function Login(){
   return result;
 }
   
+// onClick "register"
 function SignUp(){
   var result = false;
   if(controlPassword()){
@@ -26,26 +29,7 @@ function SignUp(){
   return result;
 }
 
-function EraseBase(){    
-  document.getElementById('username').value = "";
-  passwordVal = "";
-}
-
-function Erase(){
-  EraseBase();
-  document.getElementById('name').value = "";
-  document.getElementById('firstname').value = "";
-  document.getElementById('addressline').value = "";
-  document.getElementById('domicile').value = "";
-  document.getElementById("Saved").innerHTML = "";
-  if(document.getElementById('name') != null){
-    document.getElementById('name').focus();
-  }
-  else{
-    document.getElementById('username').focus();
-  }
-}
-
+// control validity of password
 function controlPassword(){
   var result = false;
   if(controlLengthIsOK()){
@@ -55,6 +39,7 @@ function controlPassword(){
   return result;
 }
 
+// control if password length is least 8
 function controlLengthIsOK(){
   var result = false;
   console.log("controlLengthIsOK reached" + passwordVal.length);
@@ -67,6 +52,7 @@ function controlLengthIsOK(){
   return result;
 }
 
+// control if password is breached
 function controlPsswdIsBreached(){
   var result = false;
   changeClassBGood();
@@ -105,6 +91,23 @@ function changeClassBBad(){
 }
 
 
-function test(){
-  changeClassLGood();
+// Erase Button
+function EraseBase(){    
+  document.getElementById('username').value = "";
+  passwordVal = "";
+}
+
+function Erase(){
+  EraseBase();
+  document.getElementById('name').value = "";
+  document.getElementById('firstname').value = "";
+  document.getElementById('addressline').value = "";
+  document.getElementById('domicile').value = "";
+  document.getElementById("Saved").innerHTML = "";
+  if(document.getElementById('name') != null){
+    document.getElementById('name').focus();
+  }
+  else{
+    document.getElementById('username').focus();
+  }
 }
