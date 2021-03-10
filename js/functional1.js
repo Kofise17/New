@@ -37,10 +37,10 @@ function passwordIsOK(){
   //if(controlLengthIsOK()){
   if(lengthIsOK()){
     console.log("Length is okay (" + password.value.length + ")");
-    if(!psswdIsBreached()){
-      console.log("Password has not been breached (" + password.value + ")")
+    //if(!psswdIsBreached()){
+      //console.log("Password has not been breached (" + password.value + ")")
       result = true;
-    }
+    //}
   }
   return result;
 }
