@@ -8,7 +8,7 @@ if(document.getElementById("psswdLength").classList !== null){
 // onClick "login"
 function Login(){
   var result = false;
-  if(controlPassword()){
+  if(passwordIsOK()){
     window.alert("Works.");
     result = true;
   }
@@ -24,6 +24,7 @@ function SignUp(){
   if(passwordIsOK()){
     window.alert("Works.");
     result = true;
+    createUser();
   }
   else{
     window.alert("Doesn't work.");
@@ -96,6 +97,7 @@ function Erase(){
   document.getElementById('firstname').value = "";
   document.getElementById('addressline').value = "";
   document.getElementById('domicile').value = "";
+  document.getElementById("Email").value = "";
   document.getElementById("Saved").innerHTML = "";
   if(document.getElementById('name') != null){
     document.getElementById('name').focus();
