@@ -40,11 +40,10 @@ function SignUp() {
 // control validity of password
 function passwordIsOK() {
     var result = false;
-    //if(controlLengthIsOK()){
     if (lengthIsOK()) {
         console.log("Length is okay (" + password.value.length + ")");
         if (!psswdIsBreached()) {
-            //console.log("Password has not been breached (" + password.value + ")")
+                                                                    //console.log("Password has not been breached (" + password.value + ")")
             result = true;
         }
     }
@@ -68,36 +67,16 @@ function psswdIsBreached() {
     var hash = SHA1(password.value);
     var prefix = hash.substring(0, 5);
     var suffix = hash.substring(5, hash.length)
-        /* console.log(hash);
-        console.log(prefix);*/
-    console.log(suffix);
-
-    /*$.get(doAPICall(prefix), {cache:false}, function(data)
-    {
-      console.log(axios.get(`${HIBP_API_URL}/${prefix}`));
-      console.log(data.indexOf(suffix));
-
-      if (data.indexOf(suffix).toLowerCase>-1) {
-        console.error("Password has been breached");
-        document.getElementById("psswdBreach").innerHTML = "Your password may not be contained in the list of breached passwords";
-        result = true;
-      }
-      else {
-        console.log("Password is safe");
-      }
-      return result;
-      //setTimeout(getTextfile, 1000);
-    });*/
+                                                                    /* console.log(hash);
+                                                                    console.log(prefix);
+                                                                    console.log(suffix);*/
     axios.get(`${HIBP_API_URL}/${prefix}`).then(response => {
-        //console.log(response.data);
+                                                                    //console.log(response);
         var responseOnePerLine = response.data.split("\n");
-        //console.log(responseOnePerLine);
-        //console.log(response.data.split("\n"));
+                                                                    //console.log(responseOnePerLine);
         for (var i = 0; i < responseOnePerLine.length; i++) {
             var data = responseOnePerLine[i].split(":");
-            //console.log(data[0]);
-            //console.log(suffix);
-            //console.log(responseOnePerLine[i].split(":"));
+                                                                    //console.log(data);
             if (data[0].toLowerCase() == suffix) {
                 console.error("Password has been breached");
                 document.getElementById("psswdBreach").innerHTML = "Your password must not be contained in the list of breached passwords";
@@ -109,20 +88,6 @@ function psswdIsBreached() {
         return result;
     }).catch(error => console.error('On get API Answer error', error));
 }
-
-/* function doAPICall(prefix){
-  axios.get(`${HIBP_API_URL}/${prefix}`).then(response => { 
-    if (response.data.indexOf(suffix).toLowerCase>-1) {
-      console.error("Password has been breached");
-      document.getElementById("psswdBreach").innerHTML = "Your password may not be contained in the list of breached passwords";
-      result = true;
-    }
-    else {
-      console.log("Password is safe");
-    }
-    return result;
-  }).catch(error => console.error('On get API Answer error', error));
-} */
 
 /**
  * Secure Hash Algorithm (SHA1)
@@ -258,7 +223,7 @@ function SHA1(msg) {
       H4 = (H4 + E) & 0x0ffffffff;
   }
   var temp = cvt_hex(H0) + cvt_hex(H1) + cvt_hex(H2) + cvt_hex(H3) + cvt_hex(H4);
-  
+
   return temp.toLowerCase();
 }
 
