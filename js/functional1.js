@@ -1,10 +1,12 @@
+//#region var declaration
 var password = document.getElementById("password");
 if(document.getElementById("psswdLength").classList !== null){
   var classListPLength = document.getElementById("psswdLength").classList;
   var classListPBreach = document.getElementById("psswdBreach").classList;
 }
+//#endregion
 
-
+//#region Login + signup
 // onClick "login"
 function Login(){
   var result = false;
@@ -31,17 +33,19 @@ function SignUp(){
   }
   return result;
 }
+//#endregion
 
+//#region password checker
 // control validity of password
 function passwordIsOK(){
   var result = false;
   //if(controlLengthIsOK()){
   if(lengthIsOK()){
     console.log("Length is okay (" + password.value.length + ")");
-    //if(!psswdIsBreached()){
+    if(!psswdIsBreached()){
       //console.log("Password has not been breached (" + password.value + ")")
       result = true;
-    //}
+    }
   }
   return result;
 }
@@ -74,7 +78,9 @@ function psswdIsBreached(){
     //setTimeout(getTextfile, 1000);
   });
 }
+//#endregion
 
+//#region class change for password
 // change colours of password rules
 function changeClassLGood(){
   classListPLength.remove("badPsswd");
@@ -84,8 +90,9 @@ function changeClassLBad(){
   classListPLength.remove("goodPsswd");
   classListPLength.add("badPsswd");
 }
+//#endregion
 
-// Erase Button
+//#region Erase button
 function EraseBase(){    
   document.getElementById('username').value = "";
   passwordVal = "";
@@ -106,3 +113,4 @@ function Erase(){
     document.getElementById('username').focus();
   }
 }
+//#endregion
