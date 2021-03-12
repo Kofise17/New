@@ -57,11 +57,14 @@ function passwordIsOK() {
     var result = false;
     if (lengthIsOK()) {
         if (!psswdIsBreached()) { <<
-            << << < HEAD
+            <<
+            << < HEAD
             //console.log("Password has not been breached (" + password.value + ")")
                 ===
-                === = >>>
-                >>> > 17e4 c8cbc7c260dde3081c3f439817d38ae31f4c
+                ===
+                = >>>
+                >>>
+                > 17e4 c8cbc7c260dde3081c3f439817d38ae31f4c
             result = true;
         }
     }
@@ -84,7 +87,8 @@ function psswdIsBreached() {
     var result = false;
     var hash = SHA1(password.value);
     var prefix = hash.substring(0, 5); <<
-    << << < HEAD
+    <<
+    << < HEAD
     var suffix = hash.substring(5, hash.length)
         /* console.log(hash);
         console.log(prefix);
@@ -97,7 +101,8 @@ function psswdIsBreached() {
                     var data = responseOnePerLine[i].split(":");
                     //console.log(data);
                     ===
-                    === =
+                    ===
+                    =
                     var suffix = hash.substring(5, hash.length);
 
                     axios.get(`${HIBP_API_URL}/${prefix}`).then(response => {
@@ -107,7 +112,8 @@ function psswdIsBreached() {
                             var data = responseOnePerLine[i].split(":");
 
                             >>>
-                            >>> > 17e4 c8cbc7c260dde3081c3f439817d38ae31f4c
+                            >>>
+                            > 17e4 c8cbc7c260dde3081c3f439817d38ae31f4c
                             if (data[0].toLowerCase() == suffix) {
                                 logError(BREACH_ERRORMESSAGE);
                                 document.getElementById("psswdBreach").innerHTML = BREACHED_PASSWORD_TEXT;
