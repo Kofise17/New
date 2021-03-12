@@ -64,7 +64,7 @@ function lengthIsOK(){
 // control if password is breached
 function psswdIsBreached(){
   var result = false;
-  $.get('src/HIBP.txt', {cache:false}, function(data)
+  $.get(doAPICall(), {cache:false}, function(data)
   {
     if (data.indexOf(password.value)>-1) {
       console.log("Password has been breached");
@@ -78,6 +78,12 @@ function psswdIsBreached(){
     //setTimeout(getTextfile, 1000);
   });
 }
+
+function doAPICall(prefix){
+  
+}
+
+
 //#endregion
 
 //#region class change for password
