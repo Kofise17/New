@@ -71,16 +71,18 @@ function psswdIsBreached(){
   var suffix = hash.substring(5,hash.length)
   /* console.log(hash);
   console.log(prefix);
-  console.log(rest); */
+  console.log(suffix);*/
   $.get(doAPICall(prefix), {cache:false}, function(data)
   {
-    if (data.indexOf(suffix)>-1) {
-      console.log("Password has been breached");
+    //console.log(doAPICall(prefix));
+    console.log(data.indexOf(suffix));
+    if (data.indexOf(suffix).toLowerCase>-1) {
+      console.error("Password has been breached");
       document.getElementById("psswdBreach").innerHTML = "Your password may not be contained in the list of breached passwords";
       result = true;
     }
     else {
-      window.alert("Password is safe");
+      console.log("Password is safe");
     }
     return result;
     //setTimeout(getTextfile, 1000);
@@ -88,7 +90,8 @@ function psswdIsBreached(){
 }
 
 function doAPICall(prefix){
-
+  axios.get(`${HIBP_API_URL}/${prefix}`).then(response => {
+  }).catch(error => console.error('On get API Answer error', error));
 }
 
 /**
