@@ -321,7 +321,19 @@ function isExistingUsername(){
 // Check if given password matches username
 function isCorrectPassword(){
     var result = false;
-    
+    /* axios.get(`${DB_URL}`).then(response => {
+        //console.log(response);
+        var responseOnePerLine = response.data.split("\n");
+                //console.log(responseOnePerLine);
+        for (var i = 0; i < responseOnePerLine.length; i++) {
+            var data = responseOnePerLine[i].split(":");
+                    //console.log(data);
+            if (data[0] == password) {
+                result = true;
+            }
+        }
+        return result;
+    }).catch(error => console.error('On get API Answer error', error)); */
     return result;
 }
 
