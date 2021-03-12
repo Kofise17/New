@@ -66,11 +66,15 @@ function lengthIsOK(){
 // control if password is breached
 function psswdIsBreached(){
   var result = false;
-  var prefix = password.value.substring(0,5);
+  var hash = SHA1(password.value);
+  var prefix = hash.substring(0,5);
+  var suffix = hash.substring(5,hash.length)
+  /* console.log(hash);
   console.log(prefix);
+  console.log(rest); */
   $.get(doAPICall(prefix), {cache:false}, function(data)
   {
-    if (data.indexOf(password.value)>-1) {
+    if (data.indexOf(suffix)>-1) {
       console.log("Password has been breached");
       document.getElementById("psswdBreach").innerHTML = "Your password may not be contained in the list of breached passwords";
       result = true;
