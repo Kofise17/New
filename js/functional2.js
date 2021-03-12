@@ -18,8 +18,3 @@ function createUser() {
     const query = Create(Collection('Users'), data )
     return client.query(query)
 }
-   
-   
-
-
-//faunadb key = fnAEEBQAbDACB37BVwIlBzNIei6vkbCUP7soWVqX
