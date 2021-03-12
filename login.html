@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>    
@@ -7,11 +6,9 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.80.0">
-    <link rel="shorrtcut icon" href="https://learning.ap.be/theme/image.php/fordson/theme/1614698236/favicon">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/"><!-- Bootstrap core CSS -->
-    <link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
- 
+    
     <!-- Favicons -->
+    <link rel="shortcut icon" href="https://learning.ap.be/theme/image.php/fordson/theme/1614698236/favicon">
     <link rel="apple-touch-icon" href="https://learning.ap.be/theme/image.php/fordson/theme/1614698236/favicon" sizes="180x180">
     <link rel="icon" href="https://learning.ap.be/theme/image.php/fordson/theme/1614698236/favicon" sizes="32x32" type="image/png">
     <link rel="icon" href="https://learning.ap.be/theme/image.php/fordson/theme/1614698236/favicon" sizes="16x16" type="image/png">
@@ -21,45 +18,27 @@
 
     
     <!-- Custom styles for this template -->
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/"><!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/5.0/examples/sign-in/signin.css" rel="stylesheet">    
     <link rel="stylesheet" href="css/stylesheet1.css">
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-    <title>Login</title>    
+    <title>Login</title>
   </head>
   <body class="text-center">    
     <main class="form-signin">
-      <form method="POST" onsubmit="return Login()">
+      <form method="GET" onsubmit="return Login()"  action="/welcome.html">
         <img class="mb-4" src="https://www.ap.be/themes/custom/ap_hogeschool/src/images/logo-ap.svg" alt="logo-ap" width="100%" height="100%">
 
         <h1 class="h3 mb-3 fw-normal">Please login</h1>
 
+        <p id="wrongCombo" class="badPsswd"></p>
         <label for="username" class="visually-hidden">Username</label>
         <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
 
         <label for="password" class="visually-hidden">Password</label>
         <input type="password" id="password" class="form-control" placeholder="Password" required>
-
-        <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
 
         <button class="w-100 btn btn-lg btn-primary distance" type="submit">Log in</button>
         <button class="w-100 btn btn-lg btn-primary distance" type="button" onClick=EraseBase()>Erase</button>
@@ -67,6 +46,6 @@
       </form>
     </main>
     <script src="js/functional1.js"></script>
-    <script src="https://cdn.passprotect.io/passprotect.min.js"></script>
+    <!-- <script src="https://cdn.passprotect.io/passprotect.min.js"></script>   this would work, but it's a plugin so not allowed-->
   </body>
 </html>
