@@ -24,7 +24,6 @@ function Login() {
         result = true;
     } else {
         badCombo();
-        window.alert("Doesn't work.");
     }
     return result;
 }
@@ -291,6 +290,37 @@ function createUser() {
 function isGoodUserPasswordCombo(){
     var result = false;
 
+    if(isExistingUsername()){
+        if(isCorrectPassword()){
+            result = true;
+        }
+    }
+    return result;
+}
+
+// check database to see if user exists
+function isExistingUsername(){
+    var result = false;
+
+    /* axios.get(`${DB_URL}`).then(response => {
+        //console.log(response);
+        var responseOnePerLine = response.data.split("\n");
+                //console.log(responseOnePerLine);
+        for (var i = 0; i < responseOnePerLine.length; i++) {
+            var data = responseOnePerLine[i].split(":");
+                    //console.log(data);
+            if (data[0] == username) {
+                result = true;
+            }
+        }
+        return result;
+    }).catch(error => console.error('On get API Answer error', error)); */
+    return result;
+}
+
+// Check if given password matches username
+function isCorrectPassword(){
+    var result = false;
     
     return result;
 }
