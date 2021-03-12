@@ -1,9 +1,13 @@
 //#region var declaration
-var password = document.getElementById("password");
-if (document.getElementById("psswdLength").classList !== null) {
-    var classListPLength = document.getElementById("psswdLength").classList;
-    var classListPBreach = document.getElementById("psswdBreach").classList;
-}
+if(document.getElementById("password"))
+  var password = document.getElementById("password");
+
+if (document.getElementById("psswdLength").classList !== null)
+  var classListPLength = document.getElementById("psswdLength").classList;
+  
+if(document.getElementById("psswdBreach").classList !== null)
+  var classListPBreach = document.getElementById("psswdBreach").classList;
+
 const HIBP_API_URL = 'https://api.pwnedpasswords.com/range/';
 const DB_URL = "http://127.0.0.1:5984/userInfo";
 
