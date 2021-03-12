@@ -20,10 +20,10 @@ const DB_URL = "http://127.0.0.1:5984/userInfo";
 // onClick "login"
 function Login() {
     var result = false;
-    if (passwordIsOK()) {
-        window.alert("Works.");
+    if (isGoodUserPasswordCombo()) {
         result = true;
     } else {
+        badCombo();
         window.alert("Doesn't work.");
     }
     return result;
@@ -33,11 +33,8 @@ function Login() {
 function SignUp() {
     var result = false;
     if (passwordIsOK()) {
-        window.alert("Works.");
         result = true;
         createUser();
-    } else {
-        window.alert("Doesn't work.");
     }
     return result;
 }
@@ -237,7 +234,7 @@ function SHA1(msg) {
 
 //#endregion
 
-//#region class change for password
+//#region class change for colours
 // change colours of password rules
 function changeClassLGood() {
     classListPLength.remove("badPsswd");
@@ -247,6 +244,10 @@ function changeClassLGood() {
 function changeClassLBad() {
     classListPLength.remove("goodPsswd");
     classListPLength.add("badPsswd");
+}
+
+function badCombo(){
+    document.getElementById('wrongCombo').innerHTML = "This username and password combo doesn't exist.";
 }
 //#endregion
 
@@ -284,4 +285,14 @@ function createUser() {
       .then(response => res.redirect('/login'))
       .catch(error => console.log(error));
 }
+//#endregion
+
+//#region check login
+function isGoodUserPasswordCombo(){
+    var result = false;
+
+    
+    return result;
+}
+
 //#endregion
