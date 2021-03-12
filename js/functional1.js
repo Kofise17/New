@@ -1,18 +1,29 @@
 //#region var declaration
-if(document.getElementById("password") !== null)
-  var password = document.getElementById("password");
-
-if(document.getElementById('username') !== null)
-    var username = document.getElementById('username');
-
-if (document.getElementById("psswdLength") !== null)
-  var classListPLength = document.getElementById("psswdLength").classList;
-
-if(document.getElementById("psswdBreach") !== null)
-  var classListPBreach = document.getElementById("psswdBreach").classList;
-
 const HIBP_API_URL = 'https://api.pwnedpasswords.com/range/';
 const DB_URL = "http://127.0.0.1:5984/userInfo";
+const BREACHED_PASSWORD_TEXT = "Your password must not be contained in the list of breached passwords";
+const BAD_USERNAME_PASSWORD_COMBO = "This username and password combo doesn't exist.";
+const BREACH_ERRORMESSAGE = "breach";
+const BADCOMBO_ERRORMESSAGE = "badCombo";
+
+if(document.getElementById("name") !== null){
+    var lastname = document.getElementById("name");
+}
+if(document.getElementById("password") !== null){
+  var password = document.getElementById("password");
+}
+
+if(document.getElementById('username') !== null){
+    var username = document.getElementById('username');
+}
+
+if (document.getElementById("psswdLength") !== null){
+  var classListPLength = document.getElementById("psswdLength").classList;
+}
+
+if(document.getElementById("psswdBreach") !== null){
+  var classListPBreach = document.getElementById("psswdBreach").classList;
+}
 
 //#endregion
 
@@ -24,6 +35,7 @@ function Login() {
         result = true;
     } else {
         badCombo();
+        logError("badCombo");
     }
     return result;
 }
@@ -44,9 +56,7 @@ function SignUp() {
 function passwordIsOK() {
     var result = false;
     if (lengthIsOK()) {
-        console.log("Length is okay (" + password.value.length + ")");
         if (!psswdIsBreached()) {
-                                                                    //console.log("Password has not been breached (" + password.value + ")")
             result = true;
         }
     }
@@ -56,7 +66,7 @@ function passwordIsOK() {
 // control if password length is least 8
 function lengthIsOK() {
     var result = false;
-    changeClassLBad()
+    changeClassLBad();
     if (password.value.length >= 8) {
         changeClassLGood();
         result = true;
@@ -69,23 +79,18 @@ function psswdIsBreached() {
     var result = false;
     var hash = SHA1(password.value);
     var prefix = hash.substring(0, 5);
-    var suffix = hash.substring(5, hash.length)
-                                                                    /* console.log(hash);
-                                                                    console.log(prefix);
-                                                                    console.log(suffix);*/
+    var suffix = hash.substring(5, hash.length);
+
     axios.get(`${HIBP_API_URL}/${prefix}`).then(response => {
-                                                                    //console.log(response);
         var responseOnePerLine = response.data.split("\n");
-                                                                    //console.log(responseOnePerLine);
+
         for (var i = 0; i < responseOnePerLine.length; i++) {
             var data = responseOnePerLine[i].split(":");
-                                                                    //console.log(data);
+
             if (data[0].toLowerCase() == suffix) {
-                console.error("Password has been breached");
-                document.getElementById("psswdBreach").innerHTML = "Your password must not be contained in the list of breached passwords";
+                logError(BREACH_ERRORMESSAGE);
+                document.getElementById("psswdBreach").innerHTML = BREACHED_PASSWORD_TEXT;
                 return result = true;
-            } else {
-                console.log("Password is safe");
             }
         }
         return result;
@@ -246,7 +251,7 @@ function changeClassLBad() {
 }
 
 function badCombo(){
-    document.getElementById('wrongCombo').innerHTML = "This username and password combo doesn't exist.";
+    document.getElementById('wrongCombo').innerHTML = BAD_USERNAME_PASSWORD_COMBO;
 }
 //#endregion
 
@@ -258,22 +263,16 @@ function EraseBase() {
 
 function Erase() {
     EraseBase();
-    document.getElementById('name').value = "";
+    lastname.value = "";
     document.getElementById('firstname').value = "";
     document.getElementById('addressline').value = "";
     document.getElementById('domicile').value = "";
     document.getElementById("Email").value = "";
     document.getElementById("Saved").innerHTML = "";
-    if (document.getElementById('name') != null) {
-        document.getElementById('name').focus();
+    if (lastname != null) {
+        lastname.focus();
     } else {
         username.focus();
-    }
-
-    function createUser() {
-        axios.post(DB_URL, req.body)
-            .then(response => res.redirect('/login'))
-            .catch(error => console.log(error));
     }
 }
 //#endregion
@@ -336,5 +335,20 @@ function isMatchingPassword(){
     }).catch(error => console.error('On get API Answer error', error)); */
     return result;
 }
+
+//#endregion
+
+//#region errors
+    function logError(error){
+        switch(error){
+            case BREACH_ERRORMESSAGE:
+                console.error("Password has been breached");
+                break;
+            case BADCOMBO_ERRORMESSAGE:
+                console.error("Either the given password or username is incorrect");
+            default:
+                console.error("There's something wrong, but I don't know what.");
+        }
+    }
 
 //#endregion
