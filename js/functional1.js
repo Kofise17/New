@@ -2,10 +2,10 @@
 if(document.getElementById("password"))
   var password = document.getElementById("password");
 
-if (document.getElementById("psswdLength").classList !== null)
+if (document.getElementById("psswdLength") !== null)
   var classListPLength = document.getElementById("psswdLength").classList;
 
-if(document.getElementById("psswdBreach").classList !== null)
+if(document.getElementById("psswdBreach") !== null)
   var classListPBreach = document.getElementById("psswdBreach").classList;
 
 const HIBP_API_URL = 'https://api.pwnedpasswords.com/range/';
