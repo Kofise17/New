@@ -276,9 +276,9 @@ function Erase() {
 //#endregion
 
 //#region CreatingUser
-  function createUser() {
-    axios.post(DB_URL, req.body)
-        .then(response => res.redirect('/login'))
-        .catch(error => console.log(error));
-  }
+function createUser() {
+  axios.post(DB_URL, req.body)
+      .then(response => res.redirect('/login'))
+      .catch(error => console.log(error));
+}
 //#endregion
