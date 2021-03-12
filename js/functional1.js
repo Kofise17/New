@@ -1,6 +1,9 @@
 //#region var declaration
-if(document.getElementById("password"))
+if(document.getElementById("password") !== null)
   var password = document.getElementById("password");
+
+if(document.getElementById('username') !== null)
+    var username = document.getElementById('username');
 
 if (document.getElementById("psswdLength") !== null)
   var classListPLength = document.getElementById("psswdLength").classList;
@@ -249,8 +252,8 @@ function changeClassLBad() {
 
 //#region Erase button
 function EraseBase() {
-    document.getElementById('username').value = "";
-    passwordVal = "";
+    username.value = "";
+    password.value = "";
 }
 
 function Erase() {
@@ -264,7 +267,7 @@ function Erase() {
     if (document.getElementById('name') != null) {
         document.getElementById('name').focus();
     } else {
-        document.getElementById('username').focus();
+        username.focus();
     }
 
     function createUser() {
