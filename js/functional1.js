@@ -72,12 +72,42 @@ function psswdIsBreached(){
   /* console.log(hash);
   console.log(prefix);
   console.log(suffix);*/
-  $.get(doAPICall(prefix), {cache:false}, function(data)
-  {
-    console.log(doAPICall(prefix));
-    console.log(data.indexOf(suffix));
+  //$.get(doAPICall(prefix), {cache:false}, function(data)
+  //{
+    //console.log(axios.get(`${HIBP_API_URL}/${prefix}`));
+    //console.log(data.indexOf(suffix));
 
-    if (data.indexOf(suffix).toLowerCase>-1) {
+    /* if (data.indexOf(suffix).toLowerCase>-1) {
+      console.error("Password has been breached");
+      document.getElementById("psswdBreach").innerHTML = "Your password may not be contained in the list of breached passwords";
+      result = true;
+    }
+    else {
+      console.log("Password is safe");
+    }
+    return result; */
+    //setTimeout(getTextfile, 1000);
+  //});
+  axios.get(`${HIBP_API_URL}/${prefix}`).then(response => { 
+    console.log(response.data);
+    for (var i = 0; i < response.data.length; i++) {
+      var data = response.data[i].split(":");
+      if (data[0].indexOf(suffix) === 0) {
+        console.error("Password has been breached");
+        document.getElementById("psswdBreach").innerHTML = "Your password may not be contained in the list of breached passwords";
+        result = true;
+      }
+      else {
+        console.log("Password is safe");
+      }
+    }
+    return result;
+  }).catch(error => console.error('On get API Answer error', error));
+}
+
+/* function doAPICall(prefix){
+  axios.get(`${HIBP_API_URL}/${prefix}`).then(response => { 
+    if (response.data.indexOf(suffix).toLowerCase>-1) {
       console.error("Password has been breached");
       document.getElementById("psswdBreach").innerHTML = "Your password may not be contained in the list of breached passwords";
       result = true;
@@ -86,14 +116,8 @@ function psswdIsBreached(){
       console.log("Password is safe");
     }
     return result;
-    //setTimeout(getTextfile, 1000);
-  });
-}
-
-function doAPICall(prefix){
-  axios.get(`${HIBP_API_URL}/${prefix}`).then(response => { response
   }).catch(error => console.error('On get API Answer error', error));
-}
+} */
 
 /**
 * Secure Hash Algorithm (SHA1)
