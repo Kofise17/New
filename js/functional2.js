@@ -1,20 +1,12 @@
 import faunadb from 'faunadb'
+const axios = require('axios').default;
+const DB_URL = "http://127.0.0.1:5984/userInfo";
 this.client = new faunadb.Client({
     secret: token || this.bootstrapToken
-}) 
+})
 
 function createUser() {
-    const data = {
-        data: {
-            name: document.getElementById('name').value,
-            firstname: document.getElementById('firstname').value,
-            addressline: document.getElementById('addressline').value,
-            domicile: document.getElementById('domicile').value,
-            email: document.getElementById("Email").value,
-            created: Now()
-        }
-    }
-   
-    const query = Create(Collection('Users'), data )
-    return client.query(query)
+    axios.post(DB_URL, req.body)
+        .then(response => res.redirect('/login'))
+        .catch(error => console.log(error));
 }
