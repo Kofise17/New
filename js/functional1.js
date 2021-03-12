@@ -74,8 +74,9 @@ function psswdIsBreached(){
   console.log(suffix);*/
   $.get(doAPICall(prefix), {cache:false}, function(data)
   {
-    //console.log(doAPICall(prefix));
+    console.log(doAPICall(prefix));
     console.log(data.indexOf(suffix));
+
     if (data.indexOf(suffix).toLowerCase>-1) {
       console.error("Password has been breached");
       document.getElementById("psswdBreach").innerHTML = "Your password may not be contained in the list of breached passwords";
@@ -90,7 +91,7 @@ function psswdIsBreached(){
 }
 
 function doAPICall(prefix){
-  axios.get(`${HIBP_API_URL}/${prefix}`).then(response => {
+  axios.get(`${HIBP_API_URL}/${prefix}`).then(response => { response
   }).catch(error => console.error('On get API Answer error', error));
 }
 
