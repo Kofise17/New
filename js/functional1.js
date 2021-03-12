@@ -5,8 +5,6 @@ if (document.getElementById("psswdLength").classList !== null) {
     var classListPBreach = document.getElementById("psswdBreach").classList;
 }
 const HIBP_API_URL = 'https://api.pwnedpasswords.com/range/';
-
-const axios = require('axios').default;
 const DB_URL = "http://127.0.0.1:5984/userInfo";
 
 //#endregion
