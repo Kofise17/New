@@ -291,7 +291,7 @@ function isGoodUserPasswordCombo(){
     var result = false;
 
     if(isExistingUsername()){
-        if(isCorrectPassword()){
+        if(isMatchingPassword()){
             result = true;
         }
     }
@@ -319,7 +319,7 @@ function isExistingUsername(){
 }
 
 // Check if given password matches username
-function isCorrectPassword(){
+function isMatchingPassword(){
     var result = false;
     /* axios.get(`${DB_URL}`).then(response => {
         //console.log(response);
