@@ -4,7 +4,7 @@ if(document.getElementById("password"))
 
 if (document.getElementById("psswdLength").classList !== null)
   var classListPLength = document.getElementById("psswdLength").classList;
-  
+
 if(document.getElementById("psswdBreach").classList !== null)
   var classListPBreach = document.getElementById("psswdBreach").classList;
 
@@ -273,4 +273,12 @@ function Erase() {
             .catch(error => console.log(error));
     }
 }
+//#endregion
+
+//#region CreatingUser
+  function createUser() {
+    axios.post(DB_URL, req.body)
+        .then(response => res.redirect('/login'))
+        .catch(error => console.log(error));
+  }
 //#endregion
