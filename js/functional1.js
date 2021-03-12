@@ -90,14 +90,18 @@ function psswdIsBreached(){
     //setTimeout(getTextfile, 1000);
   });*/
   axios.get(`${HIBP_API_URL}/${prefix}`).then(response => { 
-    response.data.split("\n");
-    console.log(response.data.split("\n"));
-    for (var i = 0; i < response.data.length; i++) {
-      var data = response.data[i].split(":");
-//console.log(response.data[i].split(":"));
+//console.log(response.data);
+    var responseOnePerLine = response.data.split("\n");
+//console.log(responseOnePerLine);
+//console.log(response.data.split("\n"));
+    for (var i = 0; i < responseOnePerLine.length; i++) {
+      var data = responseOnePerLine[i].split(":");
+//console.log(data);
+//console.log(responseOnePerLine[i].split(":"));
+console.log(data[0].indexOf(suffix));
       if (data[0].indexOf(suffix) === 0) {
         console.error("Password has been breached");
-        document.getElementById("psswdBreach").innerHTML = "Your password may not be contained in the list of breached passwords";
+        document.getElementById("psswdBreach").innerHTML = "Your password must not be contained in the list of breached passwords";
         result = true;
       }
       else {
