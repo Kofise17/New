@@ -96,7 +96,7 @@ function psswdIsBreached() {
         }
         return result;
     }).catch(error => console.error('On get API Answer error', error));
-}        
+}
 
 /**
  * Secure Hash Algorithm (SHA1)
