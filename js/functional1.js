@@ -1,6 +1,6 @@
 //#region var declaration
 const HIBP_API_URL = 'https://api.pwnedpasswords.com/range/';
-const DB_URL = "http://127.0.0.1:5984/userInfo";
+const DB_URL = "http://0.0.0.0:5984/userInfo";
 const BREACHED_PASSWORD_TEXT = "Your password must not be contained in the list of breached passwords";
 const BAD_USERNAME_PASSWORD_COMBO = "This username and password combo doesn't exist.";
 const BREACH_ERRORMESSAGE = "breach";
@@ -263,7 +263,6 @@ function Erase() {
     lastname.value = "";
     document.getElementById('firstname').value = "";
     document.getElementById('addressline').value = "";
-    document.getElementById('domicile').value = "";
     document.getElementById("Email").value = "";
     document.getElementById("Saved").innerHTML = "";
     if (lastname != null) {
@@ -281,10 +280,20 @@ function createUser() {
             .then(response => res.redirect('/welcome'))
             .catch(error => console.log(error));
     }) */
-    axios.post(DB_URL,data);
-    axios.post(DB_URL)
+
+
+    var jsonData = {
+        "name": document.getElementById("name").value,
+        "firstName" : document.getElementById("firstname").value,
+        "adressLine" : document.getElementById("addressline").value,
+        "userName" : document.getElementById("username").value,
+        "email" : document.getElementById("email").value,
+        "password" : document.getElementById("password").value
+    };
+    axios.post(DB_URL,JSON.stringify(jsonData));
+    /* axios.post(DB_URL)
         .then(response => res.redirect('/welcome'))
-        .catch(error => console.log(error));
+        .catch(error => console.log(error)); */
 }
 //#endregion
 
