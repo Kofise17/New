@@ -21,10 +21,6 @@ if (document.getElementById("psswdLength") !== null) {
     var classListPLength = document.getElementById("psswdLength").classList;
 }
 
-if (document.getElementById("psswdBreach") !== null) {
-    var classListPBreach = document.getElementById("psswdBreach").classList;
-}
-
 //#endregion
 
 //#region Login + signup
@@ -280,11 +276,15 @@ function Erase() {
 
 //#region CreatingUser
 function createUser() {
-    router.post('', (req, res) => {
+    /* router.post('', (req, res) => {
         axios.post(DB_URL, req.body)
             .then(response => res.redirect('/welcome'))
             .catch(error => console.log(error));
-    })
+    }) */
+    axios.post(DB_URL,data);
+    axios.post(DB_URL)
+        .then(response => res.redirect('/welcome'))
+        .catch(error => console.log(error));
 }
 //#endregion
 
